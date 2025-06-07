@@ -11,7 +11,14 @@ return {
                     "its her !",
                     "{X:chips,C:white}X#1#{} Chips"
                 }
-            }
+            },
+            j_ddu_erm = {
+                name = "Erm",
+                text = {
+                    "erm",
+                    "{C:dark_edition}#1#{} Joker Slot"
+                }
+            },
         },
         Other={},
         Planet={},

@@ -31,5 +31,26 @@ SMODS.Joker {
         end
     end,
 }
-
 DaysDelusions.mascot_jokers.j_ddu_dalila = "Dalila"
+
+SMODS.Joker {
+    key = 'erm',
+    name = 'Erm',
+    atlas = 'placeholder',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    cost = 20,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = false,
+    config = { extra = -1 },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra } }
+    end,
+    add_to_deck = function(self, card, context)
+        G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra
+    end,
+    remove_from_deck = function(self, card, context)
+        G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra
+    end,
+}
