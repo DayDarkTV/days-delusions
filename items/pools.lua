@@ -18,3 +18,6 @@ SMODS.ObjectType({
         end
     end
 })
+
+
+-- Add jokers to Cryptid's Food joker pool

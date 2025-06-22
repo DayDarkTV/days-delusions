@@ -19,6 +19,13 @@ return {
                     "{C:dark_edition}#1#{} Joker Slot"
                 }
             },
+            j_ddu_moodboard = {
+                name = "Mood Board",
+                text={
+                    "Copies the ability",
+                    "of rightmost {C:attention}Joker",
+                },
+            },
         },
         Other={},
         Planet={},

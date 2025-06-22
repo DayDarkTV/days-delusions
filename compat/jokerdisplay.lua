@@ -12,6 +12,32 @@ jd_def["j_ddu_dalila"] = {
         }
     }
 }
+jd_def["j_ddu_erm"] = {
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "isNegative" },
+        { ref_table = "card.ability", ref_value = "extra" },
+        { text = " Joker slots" }
+    },
+    text_config = { colour = G.C.DARK_EDITION },
+    calc_function = function (card)
+        card.joker_display_values.isNegative = card.ability.extra < 0 and "" or "+"
+    end
+}
+jd_def["j_ddu_moodboard"] = {
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "blueprint_compat", colour = G.C.RED },
+        { text = ")" }
+    },
+    calc_function = function(card)
+        local coppied_joker, coppied_debuff = JokerDisplay.calculate_blueprint_copy(card)
+        card.joker_display_values.blueprint_compat = localize('k_incompatible')
+        JokerDisplay.copy_display(card, coppied_joker, coppied_debuff)
+    end,
+    get_blueprint_joker = function (card)
+        return G.jokers.cards[#G.jokers.cards]
+    end
+}
 
 
 
