@@ -15,12 +15,12 @@ jd_def["j_ddu_dalila"] = {
 jd_def["j_ddu_erm"] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "isNegative" },
-        { ref_table = "card.ability", ref_value = "extra" },
+        { ref_table = "card.ability.extra", ref_value = "slots" },
         { text = " Joker slots" }
     },
     text_config = { colour = G.C.DARK_EDITION },
     calc_function = function (card)
-        card.joker_display_values.isNegative = card.ability.extra < 0 and "" or "+"
+        card.joker_display_values.isNegative = card.ability.extra.slots < 0 and "" or "+"
     end
 }
 jd_def["j_ddu_moodboard"] = {
@@ -37,6 +37,17 @@ jd_def["j_ddu_moodboard"] = {
     get_blueprint_joker = function (card)
         return G.jokers.cards[#G.jokers.cards]
     end
+}
+jd_def["j_ddu_alilad"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "^" },
+                { ref_table = "card.ability.extra", ref_value = "echips" },
+            },
+            border_colour = { 0.8, 0.45, 0.85, 1 }
+        },
+    }
 }
 
 

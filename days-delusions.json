@@ -6,7 +6,7 @@
 	"description": "A mod containing all my delusional ideas",
 	"prefix": "ddu",
 	"main_file": "main.lua",
-	"priority": 0,
+	"priority": 146989,
 	"badge_colour": "7b5d85",
 	"badge_text_colour": "FFFFFF",
 	"version": "0.1.0",

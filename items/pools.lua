@@ -2,6 +2,7 @@
 SMODS.ObjectType({
     key = "mascot",
     cards = {},
+    default = "j_ddu_dalila",
     inject = function(self)
         SMODS.ObjectType.inject(self)
         for key, name in pairs(DaysDelusions.mascot_jokers) do
@@ -19,5 +20,3 @@ SMODS.ObjectType({
     end
 })
 
-
--- Add jokers to Cryptid's Food joker pool

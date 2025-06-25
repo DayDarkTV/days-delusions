@@ -12,6 +12,13 @@ return {
                     "{X:chips,C:white}X#1#{} Chips"
                 }
             },
+            j_ddu_alilad = {
+                name = "Alilad",
+                text = {
+                    "its... not her ?",
+                    "{X:dark_edition,C:white}^#1#{} Chips"
+                }
+            },
             j_ddu_erm = {
                 name = "Erm",
                 text = {
@@ -21,11 +28,36 @@ return {
             },
             j_ddu_moodboard = {
                 name = "Mood Board",
-                text={
+                text = {
                     "Copies the ability",
                     "of rightmost {C:attention}Joker",
                 },
             },
+            j_ddu_placeholder = {
+                name = "Placeholder",
+                text = {
+                    "this card is a",
+                    "placeholder!"
+                },
+            },
+            j_ddu_temp = {
+                name = "temp",
+                text = {
+                    "increase values of",
+                    "joker to the right",
+                    "#1# every round"
+                }
+            }
+        },
+        Logic={
+            c_ddu_and = {
+                name = "AND",
+                text = {
+                    "When used, if {C:attention}#1#{} selected",
+                    "cards are equal, duplicate",
+                    "selected cards"
+                }
+            }
         },
         Other={},
         Planet={},
@@ -41,7 +73,11 @@ return {
         blind_states={},
         challenge_names={},
         collabs={},
-        dictionary={},
+        dictionary={
+            k_logic = "Logic",
+            k_logic_pack = "Logic Pack",
+            b_logic_cards = "Logic Cards",
+        },
         high_scores={},
         labels={},
         poker_hand_descriptions={},

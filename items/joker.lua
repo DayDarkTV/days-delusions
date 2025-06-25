@@ -1,16 +1,3 @@
-SMODS.Atlas {
-    key = 'placeholder',
-    path = 'placeholder.png',
-	px = 71,
-	py = 95
-}
-SMODS.Atlas {
-    key = 'jokers',
-    path = 'jokers.png',
-	px = 71,
-	py = 95
-}
-
 SMODS.Joker {
     key = 'dalila',
     name = 'Dalila',
@@ -32,6 +19,7 @@ SMODS.Joker {
     end,
 }
 DaysDelusions.mascot_jokers.j_ddu_dalila = "Dalila"
+
 
 SMODS.Joker {
     key = "moodboard",
@@ -97,6 +85,7 @@ SMODS.Joker {
     end,
 }
 
+
 SMODS.Joker {
     key = 'erm',
     name = 'Erm',
@@ -107,15 +96,37 @@ SMODS.Joker {
     blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = false,
-    config = { extra = -1 },
+    config = {
+        extra = { slots = -1 },
+        immutible = { prevslots = -1 }
+    },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra } }
+        return { vars = { card.ability.extra.slots } }
     end,
     add_to_deck = function(self, card, context)
-        G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra
+        G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.slots
     end,
     remove_from_deck = function(self, card, context)
-        G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra
+        G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.slots
     end,
+    update = function(self, card, context)
+        if card.ability.extra.slots ~= card.ability.immutible.prevslots then
+            G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.slots - card.ability.immutible.prevslots
+            card.ability.immutible.prevslots = card.ability.extra.slots
+        end
+    end
 }
 DaysDelusions.meme_jokers.j_ddu_erm = "Erm"
+
+
+SMODS.Joker {
+    key = "placeholder",
+    name = "Placeholder",
+    atlas = "placeholder",
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    cost = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+}
