@@ -59,7 +59,22 @@ return {
                 }
             }
         },
-        Other={},
+        Other={
+            p_ddu_mascot_normal_1 = {
+                name = "Mascot Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{} Mascot card#<s>2#"
+                }
+            },
+            p_ddu_logic_normal_1 = {
+                name = "Logic Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{} Logic card#<s>2#"
+                }
+            }
+        },
         Planet={},
         Spectral={},
         Stake={},
@@ -77,6 +92,7 @@ return {
             k_logic = "Logic",
             k_logic_pack = "Logic Pack",
             b_logic_cards = "Logic Cards",
+            k_mascot_pack = "Mascot Pack",
         },
         high_scores={},
         labels={},

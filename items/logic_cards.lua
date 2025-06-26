@@ -1,3 +1,5 @@
+--- AND Logic Card
+--- if selected cards are all equivilant, duplicate each
 SMODS.Consumable {
     key = "and",
     set = "Logic",
@@ -8,6 +10,9 @@ SMODS.Consumable {
     config = {
         select = 2,
     },
+    loc_vars = function (self, info_queue, card)
+        return { vars = {card.ability.select} }
+    end,
     can_use = function (self, card, area)
         local numbed = #DaysDelusions.getHighlighted({G.hand}) > 0 and #DaysDelusions.getHighlighted({G.hand}) <= card.ability.select
         local are_equal = DaysDelusions.areEqual(DaysDelusions.getHighlighted({G.hand}))
