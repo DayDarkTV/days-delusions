@@ -25,7 +25,7 @@ SMODS.Joker {
     key = "moodboard",
     name = "Mood Board",
     atlas = "placeholder",
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 0 },
     rarity = 3,
     cost = 10,
     blueprint_compat = true,
@@ -90,7 +90,7 @@ SMODS.Joker {
     key = 'erm',
     name = 'Erm',
     atlas = 'placeholder',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     rarity = 1,
     cost = 20,
     blueprint_compat = false,
@@ -117,6 +117,70 @@ SMODS.Joker {
     end
 }
 DaysDelusions.meme_jokers.j_ddu_erm = "Erm"
+
+
+SMODS.Joker {
+    key = "programmer",
+    name = "Programmer",
+    atlas = "placeholder",
+    pos = { x = 1, y = 0 },
+    rarity = 1,
+    cost = 4,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    config = {
+        extra = 1,
+        immutible = 0
+    },
+    loc_vars = function (self, info_queue, card)
+        return { vars = { card.ability.extra, card.ability.immutible } }
+    end,
+    update = function (self, card, context)
+        card.ability.immutible = DaysDelusions.amntUsed("Logic") * card.ability.extra
+    end,
+    calculate = function (self, card, context)
+        if context.using_consumeable and context.consumeable.ability.set == "Logic" and not context.blueprint then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+---@diagnostic disable-next-line: redundant-parameter
+                    card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize{type='variable',key='a_mult',vars={card.ability.immutible}, focus = self}})
+                    return true
+                end
+            }))
+        end
+        if context.joker_main or context.forcetrigger and DaysDelusions.amntUsed("Logic") > 0 then
+            return {
+                message = localize{type='variable',key='a_mult',vars={card.ability.immutible}},
+                mult_mod = card.ability.immutible
+            }
+        end
+    end
+}
+
+
+SMODS.Joker {
+    key = 'm',
+    name = '"M"',
+    atlas = "placeholder",
+    pos = { x = 1, y = 0 },
+    rarity = 1,
+    cost = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    config = { extra = { chips = 40 } },
+    loc_vars = function (self, info_queue, card)
+        return { vars = { card.ability.extra.chips } }
+    end,
+    calculate = function (self, card, context)
+        if context.joker_main or context.forcetrigger then
+            return { chips = card.ability.extra.chips }
+        end
+    end
+
+}
+DaysDelusions.mascot_jokers.j_ddu_m = '"M"'
 
 
 SMODS.Joker {

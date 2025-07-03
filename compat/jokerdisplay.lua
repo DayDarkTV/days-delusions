@@ -49,6 +49,17 @@ jd_def["j_ddu_alilad"] = {
         },
     }
 }
+jd_def["j_ddu_programmer"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "+" },
+                { ref_table = "card.ability", ref_value = "immutible" }
+            },
+            border_colour = G.C.MULT
+        }
+    }
+}
 
 
 

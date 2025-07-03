@@ -18,6 +18,14 @@ DaysDelusions.getHighlighted = function (tables, ignored)
     return cards
 end
 
+DaysDelusions.contains = function (area, target_key)
+    for i, v in pairs(area.cards) do
+        if v.config and v.config.center and v.config.center.key == target_key then
+            return true
+        end
+    end
+end
+
 DaysDelusions.areEqual = function (cards, ignored_keys, check) -- no idea if this function already exists.. im on a cruise with no internet
     if #cards < 1 then return true end --- todo: fix ;-;
     ignored_keys = ignored_keys or {hands_played_at_create = true, grm_status = true}

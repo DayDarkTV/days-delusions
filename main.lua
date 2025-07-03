@@ -46,3 +46,5 @@ end
 SMODS.load_file("items/pools.lua")()
 
 SMODS.load_file("items/boosters.lua")()
+
+SMODS.load_file("items/decks.lua")()
